@@ -1,6 +1,7 @@
 //sentence generator using express and mongodb
 var express = require('express');
 var app = express();
+app.use(bodyParser.json());
 var MongoClient = require('mongodb').MongoClient;
 
 //sentence templates array - these make the nonsense text look more like real sentences
@@ -10,14 +11,20 @@ var vocab = Object.create(null);
 
 require('./seed.js');//recreate db - just for demo
 
-//connect to database - url in app configs
+app.listen(3000, function() {
+    console.log("Listening...");
+});
+
+//app home page
+app.get('/', function(req, res) { console.log("getting home");
+	//connect to database - url in app configs
 	MongoClient.connect(process.env.DATABASE_URL, function(err, db) {
 		//templates indicate sentence outline using parts of speech, e.g.
 		//determiner noun verb determiner adjective noun
 		var templateCollection = db.collection('sentences'); console.log("got sentences"+templateCollection.count());
 		//get the collection as an array
 		templateCollection.find({}).toArray(function(err, templateDocs) {
-			if(err) { console.log(err); }//res.send("Oops!"); }
+			if(err) { console.log(err); res.send("Oops!"); }
 			//loop through and add to array
 			templateDocs.forEach(function(doc) {
 				sentenceTemplates.push(doc.sentence);
@@ -26,24 +33,13 @@ require('./seed.js');//recreate db - just for demo
 			var vocabCollection = db.collection('words');
 			//get word arrays for each part of speech
 			vocabCollection.find({}).toArray(function(err, vocabDocs) {
-				if(err) { console.log(err); }//res.send("Oops!"); }
+				if(err) { console.log(err); res.send("Oops!"); }
 				//loop through and add to array
 				vocabDocs.forEach(function(doc) {
 					vocab[doc.pos] = doc.words;
 				});
 				//close the database connection
 				db.close();
-				});
-		});
-					
-});		
-app.listen(3000, function() {
-    console.log("Listening...");
-});
-
-//app home page
-app.get('/', function(req, res) { console.log("getting home");
-	
 
 				//try out some sentences and paragraphs
 				res.send("<html><head><style type='text/css'>" +
@@ -57,7 +53,9 @@ app.get('/', function(req, res) { console.log("getting home");
 					"<p><em>Built using MongoDB and Node.js via Compose and Heroku.</em></p>" +
 					"</body></html>");
 				});
-
+			});
+		});
+});
 
 //helper function to create sentence from data
 function getSentence() {

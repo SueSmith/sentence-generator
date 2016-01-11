@@ -1,6 +1,7 @@
 //sentence generator using express and mongodb
 var express = require('express');
 var app = express();
+var logfmt = require("logfmt");
 app.use(logfmt.requestLogger());
 app.use(multipartMiddleware);
 var MongoClient = require('mongodb').MongoClient;

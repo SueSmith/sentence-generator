@@ -10,13 +10,13 @@ var vocab = Object.create(null);
 
 require('./seed.js');//recreate db - just for demo
 
-app.listen(3000, function() {
+app.listen(process.env.PORT || 3000, function() {
     console.log("Listening...");
 });
 
 //app home page
-app.get('/', function(req, res) { console.log("getting home"); res.send("hi there");
-/*	//connect to database - url in app configs
+app.get('/', function(req, res) { 
+	//connect to database - url in app configs
 	MongoClient.connect(process.env.DATABASE_URL, function(err, db) {
 		//templates indicate sentence outline using parts of speech, e.g.
 		//determiner noun verb determiner adjective noun
@@ -53,7 +53,7 @@ app.get('/', function(req, res) { console.log("getting home"); res.send("hi ther
 					"</body></html>");
 				});
 			});
-		});*/
+		});
 });
 
 //helper function to create sentence from data

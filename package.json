@@ -1,5 +1,5 @@
 {
-  "name": "sentence generator",
+  "name": "sentgen",
   "version": "1.0.0",
   "description": "generate nonsense sentences",
   "main": "index.js",

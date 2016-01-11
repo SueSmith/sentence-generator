@@ -1,7 +1,6 @@
 //sentence generator using express and mongodb
 var express = require('express');
 var app = express();
-app.use(bodyParser.json());
 var MongoClient = require('mongodb').MongoClient;
 
 //sentence templates array - these make the nonsense text look more like real sentences
@@ -16,8 +15,8 @@ app.listen(3000, function() {
 });
 
 //app home page
-app.get('/', function(req, res) { console.log("getting home");
-	//connect to database - url in app configs
+app.get('/', function(req, res) { console.log("getting home"); res.send("hi there");
+/*	//connect to database - url in app configs
 	MongoClient.connect(process.env.DATABASE_URL, function(err, db) {
 		//templates indicate sentence outline using parts of speech, e.g.
 		//determiner noun verb determiner adjective noun
@@ -54,7 +53,7 @@ app.get('/', function(req, res) { console.log("getting home");
 					"</body></html>");
 				});
 			});
-		});
+		});*/
 });
 
 //helper function to create sentence from data

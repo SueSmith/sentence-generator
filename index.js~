@@ -1,8 +1,6 @@
 //sentence generator using express and mongodb
 var express = require('express');
 var app = express();
-app.use(logfmt.requestLogger());
-app.use(multipartMiddleware);
 var MongoClient = require('mongodb').MongoClient;
 
 //sentence templates array - these make the nonsense text look more like real sentences

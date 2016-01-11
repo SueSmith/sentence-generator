@@ -15,7 +15,7 @@ app.listen(3000, function() {
 });
 
 //app home page
-app.get('/', function(req, res) {
+app.get('/', function(req, res) { console.log("getting home");
 	//connect to database - url in app configs
 	MongoClient.connect(process.env.DATABASE_URL, function(err, db) {
 		//templates indicate sentence outline using parts of speech, e.g.

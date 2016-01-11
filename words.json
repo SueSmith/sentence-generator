@@ -1,0 +1,31 @@
+[{
+	"pos": "noun",
+	"words": [
+		"cat", "dog", "chair", "man", "thing", "giraffe", "government", "monkey", "number", "house", "hand", "school", "word", "family", "eye", "building", "book", "car"
+	]
+}, {
+	"pos": "verb",
+	"words": [
+		"kicks", "paints", "loves", "takes", "gives", "transforms", "tells", "spins", "throws", "calls", "melts", "sees", "helps", "pays", "believes", "understands"
+	]
+}, {
+	"pos": "adjective",
+	"words": [
+		"purple", "small", "beautiful", "good", "new", "old", "important", "young", "early", "political", "public", "bad", "real", "special", "strong", "human", "poor"
+	]
+}, {
+	"pos": "adverb",
+	"words": [
+		"only", "just", "also", "even", "really", "always", "already", "probably", "actually", "eventually"
+	]
+}, {
+	"pos": "determiner",
+	"words": [
+		"the", "his", "their", "her", "its", "my", "your", "our", "every"
+	]
+}, {
+	"pos": "pronoun",
+	"words": [
+		"it", "something", "someone", "everything", "everyone", "somebody", "everybody"
+	]
+}]

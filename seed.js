@@ -25,7 +25,7 @@ MongoClient.connect(process.env.DATABASE_URL, function(err, db) {
 			db.collection('sentences').drop(); db.collection('words').drop(); //drop collections - just for demo
 			//insert sentence templates
 			insertData(db, 'sentences', function(sentenceResult){
-				console.log("sentence result: "+sentenceResult);
+				console.log("sentence result: "+sentenceResult.acknowledged);
 				//insert vocab words
 				insertData(db, 'words', function(wordResult){
 					console.log("words result: "+wordResult);

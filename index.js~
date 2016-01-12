@@ -10,7 +10,7 @@ var vocab = Object.create(null);
 
 require('./seed.js');//recreate db - just for demo
 
-app.listen(process.env.PORT || 5000, function() {
+app.listen(process.env.PORT || 3000, function() {
     console.log("Listening...");
 });
 

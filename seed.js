@@ -10,11 +10,11 @@ Data:
 
 	Sentence templates - these indicate common sentence structures using lists of parts of speech,
 	e.g. The monkey types the lovely code.
-	- structure: determiner noun determiner adjective noun
+	- structure: determiner noun verb determiner adjective noun
 	
 	Vocab - lists of words for each part of speech in the sentence templates,
 	e.g. noun: monkey, man, woman, chair, wall
-	- these will be populated into the template structures at random, creating nonsense sentences
+	- these are populated into the template structures at random, creating nonsense sentences
 	
 */
 
